@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "title": "Assistência Pet com Sistema de Gestão",
+    "subtitle": "Agora sim, você poderá cuidar melhor dos seus pets e de você.",
+    "cta": "Consultas, exames, cirurgia..."
+  },
+  "oQueE": {
+    "title": "O QUE É O LARCOMPET?",
+    "subtitle": "Um programa online para gestão e cuidados com o pet, mas com vários serviços essenciais inclusos para o Pet e para o Tutor do Pet.",
+    "features": [
+      {
+        "title": "Controle total do seu pet",
+        "description": "Períodos de cio, vermifugação, vacinas, medicamentos, tosa, etc"
+      },
+      {
+        "title": "Não esqueça de nada",
+        "description": "Defina lembretes por e-mail, SMS ou WhatsApp."
+      },
+      {
+        "title": "Tudo num único local",
+        "description": "Telefones, e-mails, formulários e serviços ofertados das assistências."
+      },
+      {
+        "title": "Ofertas e promoções",
+        "description": "Conheça e economize com serviços, descontos e promoções dos nossos parceiros."
+      }
+    ]
+  },
+  "beneficiosTutor": {
+    "title": "ADICIONAMOS BENEFÍCIOS PARA O TUTOR DO PET E O PET",
+    "description": "Um seguro de Acidentes Pessoais com a cobertura de Morte Acidental e três tipos de Assistências 24 Horas, pois sabemos que imprevistos acontecem.",
+    "cta": "Saiba mais..."
+  },
+  "parceiros": {
+    "title": "CLUBES DE BENEFÍCIOS EM QUE ESTAMOS PRESENTES",
+    "logos": [
+      "clube_colibri.png",
+      "sou_vitoria.png",
+      "oab_ba.png",
+      "akad_seguros.png"
+    ]
+  }
+}

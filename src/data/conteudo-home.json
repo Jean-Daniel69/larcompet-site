@@ -1,8 +1,32 @@
 {
   "hero": {
-    "title": "Assistência Pet com Sistema de Gestão",
-    "subtitle": "Agora sim, você poderá cuidar melhor dos seus pets e de você.",
-    "cta": "Consultas, exames, cirurgia..."
+    "titulo": "Assistência Pet com Sistema de Gestão",
+    "subtitulo": "Agora sim, você poderá cuidar melhor dos seus pets e de você.",
+    "cta": {
+      "texto": "Consultas, exames, cirurgia...",
+      "link": "#"
+    }
+  },
+  "comoFunciona": {
+    "titulo": "Como Funciona",
+    "subtitulo": "Simples, rápido e eficiente para cuidar do seu pet",
+    "passos": [
+      {
+        "numero": "1",
+        "titulo": "Cadastro",
+        "descricao": "Faça seu cadastro e cadastre seus pets em poucos minutos"
+      },
+      {
+        "numero": "2",
+        "titulo": "Escolha do Plano",
+        "descricao": "Selecione o plano ideal para você e seu pet"
+      },
+      {
+        "numero": "3",
+        "titulo": "Acesso aos Serviços",
+        "descricao": "Tenha acesso a todos os benefícios e serviços disponíveis"
+      }
+    ]
   },
   "oQueE": {
     "title": "O QUE É O LARCOMPET?",

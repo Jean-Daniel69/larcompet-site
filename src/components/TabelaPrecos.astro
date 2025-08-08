@@ -1,6 +1,15 @@
 ---
-const response = await fetch('https://larcompet.com.br/tabela_precos/get-prices_ok.php');
-const planos = await response.json();
+let planos = [];
+try {
+  const response = await fetch('https://larcompet.com.br/tabela_precos/get-prices_ok.php');
+  if (response.ok) {
+    planos = await response.json();
+  } else {
+    planos = [];
+  }
+} catch (e) {
+  planos = [];
+}
 
 // Função para formatar moeda
 function formatarMoeda(valor) {

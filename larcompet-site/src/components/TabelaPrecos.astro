@@ -1,0 +1,274 @@
+---
+import planos from '../data/planos-saude.json';
+
+// Funções helpers removidas: lógica será feita diretamente no template Astro
+// Função para formatar moeda
+function formatarMoeda(valor) {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);
+}
+
+// Agrupar planos
+const planosAgrupados = {
+  comTele: {
+    mensal: planos.filter(p => p.TelemedicinaTutor == 1 && p.Periodicidade === 'Mensal'),
+    anual: planos.filter(p => p.TelemedicinaTutor == 1 && p.Periodicidade === 'Anual'),
+  },
+  semTele: {
+    mensal: planos.filter(p => p.TelemedicinaTutor == 0 && p.Periodicidade === 'Mensal'),
+    anual: planos.filter(p => p.TelemedicinaTutor == 0 && p.Periodicidade === 'Anual'),
+  },
+};
+---
+
+<section class="py-16 px-4 bg-gray-50">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-blue-900 mb-10">Nossos Planos</h2>
+    <div id="tabela-precos-container">
+      <!-- Abas Principais -->
+      <div class="border-b border-gray-200">
+        <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
+          <button class="tab-main active-tab" data-tab="comTele">Com Telemedicina</button>
+          <button class="tab-main" data-tab="semTele">Sem Telemedicina</button>
+        </nav>
+      </div>
+
+      <!-- Conteúdo das Abas Principais -->
+      <div id="comTele" class="tab-content-main active">
+        <div class="mt-6">
+          <div class="flex justify-center space-x-4">
+            <button class="tab-sub active-tab" data-tab-parent="comTele" data-tab="comTele-mensal">Mensal</button>
+            <button class="tab-sub" data-tab-parent="comTele" data-tab="comTele-anual">Anual</button>
+          </div>
+          <div id="comTele-mensal" class="tab-content-sub active">
+            {planosAgrupados.comTele.mensal.length === 0
+              ? <p class="mt-8 text-gray-500">Nenhum plano disponível para esta seleção.</p>
+              : (
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                  {planosAgrupados.comTele.mensal.map(plano => (
+                    <div class="border-2 border-blue-200 rounded-lg p-6 flex flex-col shadow-lg hover:shadow-xl transition">
+                      <h3 class="text-2xl font-bold text-blue-900">{plano.Nome}</h3>
+                      <p class="text-gray-500">{plano.Descricao}</p>
+                      <div class="my-4">
+                        <span class="text-4xl font-bold text-blue-600">{formatarMoeda(plano.ValorFinal)}</span>
+                        <span class="text-gray-500">/{plano.Periodicidade === 'Mensal' ? 'mês' : 'ano'}</span>
+                        {plano.ValorMensalEquivalente && (
+                          <p class="text-sm text-green-600 font-semibold">Equivale a {formatarMoeda(plano.ValorMensalEquivalente)}/mês</p>
+                        )}
+                      </div>
+                      <ul class="text-left space-y-2 flex-grow">
+                        {plano.servicos.map(servico => (
+                          <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700">{servico}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <a href={plano.LinkPagina} target="_blank" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition text-center">
+                        Contratar Agora
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+          <div id="comTele-anual" class="tab-content-sub">
+            {planosAgrupados.comTele.anual.length === 0
+              ? <p class="mt-8 text-gray-500">Nenhum plano disponível para esta seleção.</p>
+              : (
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                  {planosAgrupados.comTele.anual.map(plano => (
+                    <div class="border-2 border-blue-200 rounded-lg p-6 flex flex-col shadow-lg hover:shadow-xl transition">
+                      <h3 class="text-2xl font-bold text-blue-900">{plano.Nome}</h3>
+                      <p class="text-gray-500">{plano.Descricao}</p>
+                      <div class="my-4">
+                        <span class="text-4xl font-bold text-blue-600">{formatarMoeda(plano.ValorFinal)}</span>
+                        <span class="text-gray-500">/{plano.Periodicidade === 'Mensal' ? 'mês' : 'ano'}</span>
+                        {plano.ValorMensalEquivalente && (
+                          <p class="text-sm text-green-600 font-semibold">Equivale a {formatarMoeda(plano.ValorMensalEquivalente)}/mês</p>
+                        )}
+                      </div>
+                      <ul class="text-left space-y-2 flex-grow">
+                        {plano.servicos.map(servico => (
+                          <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700">{servico}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <a href={plano.LinkPagina} target="_blank" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition text-center">
+                        Contratar Agora
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+      <div id="semTele" class="tab-content-main">
+        <div class="mt-6">
+          <div class="flex justify-center space-x-4">
+            <button class="tab-sub active-tab" data-tab-parent="semTele" data-tab="semTele-mensal">Mensal</button>
+            <button class="tab-sub" data-tab-parent="semTele" data-tab="semTele-anual">Anual</button>
+          </div>
+          <div id="semTele-mensal" class="tab-content-sub active">
+            {planosAgrupados.semTele.mensal.length === 0
+              ? <p class="mt-8 text-gray-500">Nenhum plano disponível para esta seleção.</p>
+              : (
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                  {planosAgrupados.semTele.mensal.map(plano => (
+                    <div class="border-2 border-blue-200 rounded-lg p-6 flex flex-col shadow-lg hover:shadow-xl transition">
+                      <h3 class="text-2xl font-bold text-blue-900">{plano.Nome}</h3>
+                      <p class="text-gray-500">{plano.Descricao}</p>
+                      <div class="my-4">
+                        <span class="text-4xl font-bold text-blue-600">{formatarMoeda(plano.ValorFinal)}</span>
+                        <span class="text-gray-500">/{plano.Periodicidade === 'Mensal' ? 'mês' : 'ano'}</span>
+                        {plano.ValorMensalEquivalente && (
+                          <p class="text-sm text-green-600 font-semibold">Equivale a {formatarMoeda(plano.ValorMensalEquivalente)}/mês</p>
+                        )}
+                      </div>
+                      <ul class="text-left space-y-2 flex-grow">
+                        {plano.servicos.map(servico => (
+                          <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700">{servico}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <a href={plano.LinkPagina} target="_blank" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition text-center">
+                        Contratar Agora
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+          <div id="semTele-anual" class="tab-content-sub">
+            {planosAgrupados.semTele.anual.length === 0
+              ? <p class="mt-8 text-gray-500">Nenhum plano disponível para esta seleção.</p>
+              : (
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                  {planosAgrupados.semTele.anual.map(plano => (
+                    <div class="border-2 border-blue-200 rounded-lg p-6 flex flex-col shadow-lg hover:shadow-xl transition">
+                      <h3 class="text-2xl font-bold text-blue-900">{plano.Nome}</h3>
+                      <p class="text-gray-500">{plano.Descricao}</p>
+                      <div class="my-4">
+                        <span class="text-4xl font-bold text-blue-600">{formatarMoeda(plano.ValorFinal)}</span>
+                        <span class="text-gray-500">/{plano.Periodicidade === 'Mensal' ? 'mês' : 'ano'}</span>
+                        {plano.ValorMensalEquivalente && (
+                          <p class="text-sm text-green-600 font-semibold">Equivale a {formatarMoeda(plano.ValorMensalEquivalente)}/mês</p>
+                        )}
+                      </div>
+                      <ul class="text-left space-y-2 flex-grow">
+                        {plano.servicos.map(servico => (
+                          <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700">{servico}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <a href={plano.LinkPagina} target="_blank" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition text-center">
+                        Contratar Agora
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Todas as funções helper JSX foram removidas para compatibilidade com Astro -->
+
+<style>
+  .tab-main, .tab-sub {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    border-bottom: 2px solid transparent;
+  }
+  .tab-main:hover, .tab-sub:hover {
+    border-bottom-color: #3b82f6;
+    color: #2563eb;
+  }
+  .tab-main:focus, .tab-sub:focus {
+    outline: none;
+  }
+  .active-tab {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+  }
+  .tab-content-main, .tab-content-sub {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Lógica para abas principais
+    const mainTabs = document.querySelectorAll('.tab-main');
+    const mainContents = document.querySelectorAll('.tab-content-main');
+
+    mainTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        mainTabs.forEach(t => t.classList.remove('active-tab'));
+        tab.classList.add('active-tab');
+
+        mainContents.forEach(content => {
+          content.style.display = 'none';
+          content.classList.remove('active');
+        });
+        const activeContent = document.getElementById(tab.dataset.tab);
+        activeContent.style.display = 'block';
+        activeContent.classList.add('active');
+      });
+    });
+
+    // Lógica para sub-abas
+    const subTabs = document.querySelectorAll('.tab-sub');
+
+    subTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const parentId = tab.dataset.tabParent;
+        const subTabsOfParent = document.querySelectorAll(`.tab-sub[data-tab-parent="${parentId}"]`);
+        const subContentsOfParent = document.querySelectorAll(`#${parentId} .tab-content-sub`);
+
+        subTabsOfParent.forEach(t => t.classList.remove('active-tab'));
+        tab.classList.add('active-tab');
+
+        subContentsOfParent.forEach(content => {
+          content.style.display = 'none';
+          content.classList.remove('active');
+        });
+        
+        const activeContentId = tab.dataset.tab;
+        const activeContent = document.getElementById(activeContentId);
+        if (activeContent) {
+            activeContent.style.display = 'block';
+            activeContent.classList.add('active');
+        }
+      });
+    });
+
+    // Ativar a primeira sub-aba de cada grupo por padrão
+    document.querySelectorAll('.tab-content-main').forEach(mainContent => {
+        const firstSubTab = mainContent.querySelector('.tab-sub');
+        if(firstSubTab) {
+            firstSubTab.click();
+        }
+    });
+  });
+</script>

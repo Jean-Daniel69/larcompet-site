@@ -1,0 +1,90 @@
+[
+  {
+    "Nome": "Pet Solo",
+    "Descricao": "1 Pet",
+    "TelemedicinaTutor": 0,
+    "Periodicidade": "Mensal",
+    "ValorFinal": 59.90,
+    "ValorMensalEquivalente": null,
+    "servicos": [
+      "Cirurgia: R$ 2.000,00/ano",
+      "Internação: R$ 1.500,00/ano",
+      "Exames de Imagem: R$ 1.500,00/ano",
+      "Exames Laboratoriais: R$ 1.500,00/ano",
+      "Telemedicina Pet: Até 03 Consultas/ano",
+      "Funeral do Pet: R$ 1.500,00/ano",
+      "Castração: R$ 500,00/ano",
+      "Consulta Emergencial: R$ 500,00/ano",
+      "Software de Gestão Pet One: 01 Pet",
+      "Morte Acidental do Tutor: R$ 5.000,00",
+      "Assistência Funeral do Tutor: R$ 5.000,00"
+    ],
+    "LinkPagina": "#"
+  },
+  {
+    "Nome": "Pet Duo",
+    "Descricao": "2 Pets",
+    "TelemedicinaTutor": 0,
+    "Periodicidade": "Mensal",
+    "ValorFinal": 79.90,
+    "ValorMensalEquivalente": null,
+    "servicos": [
+      "Cirurgia: R$ 2.000,00/ano",
+      "Internação: R$ 1.500,00/ano",
+      "Exames de Imagem: R$ 1.500,00/ano",
+      "Exames Laboratoriais: R$ 1.500,00/ano",
+      "Telemedicina Pet: Até 03 Consultas/ano",
+      "Funeral do Pet: R$ 1.500,00/ano",
+      "Castração: R$ 500,00/ano",
+      "Consulta Emergencial: R$ 500,00/ano",
+      "Software de Gestão Pet Duo: 02 Pets",
+      "Morte Acidental do Tutor: R$ 5.000,00",
+      "Assistência Funeral do Tutor: R$ 5.000,00"
+    ],
+    "LinkPagina": "#"
+  },
+  {
+    "Nome": "Pet Trio",
+    "Descricao": "3 Pets",
+    "TelemedicinaTutor": 0,
+    "Periodicidade": "Mensal",
+    "ValorFinal": 99.90,
+    "ValorMensalEquivalente": null,
+    "servicos": [
+      "Cirurgia: R$ 2.000,00/ano",
+      "Internação: R$ 1.500,00/ano",
+      "Exames de Imagem: R$ 1.500,00/ano",
+      "Exames Laboratoriais: R$ 1.500,00/ano",
+      "Telemedicina Pet: Até 03 Consultas/ano",
+      "Funeral do Pet: R$ 1.500,00/ano",
+      "Castração: R$ 500,00/ano",
+      "Consulta Emergencial: R$ 500,00/ano",
+      "Software de Gestão Pet Trio: 03 Pets",
+      "Morte Acidental do Tutor: R$ 5.000,00",
+      "Assistência Funeral do Tutor: R$ 5.000,00"
+    ],
+    "LinkPagina": "#"
+  },
+  {
+    "Nome": "Pet Solo",
+    "Descricao": "1 Pet",
+    "TelemedicinaTutor": 1,
+    "Periodicidade": "Mensal",
+    "ValorFinal": 69.90,
+    "ValorMensalEquivalente": null,
+    "servicos": [
+      "Cirurgia: R$ 2.000,00/ano",
+      "Internação: R$ 1.500,00/ano",
+      "Exames de Imagem: R$ 1.500,00/ano",
+      "Exames Laboratoriais: R$ 1.500,00/ano",
+      "Telemedicina Pet: Até 03 Consultas/ano",
+      "Funeral do Pet: R$ 1.500,00/ano",
+      "Castração: R$ 500,00/ano",
+      "Consulta Emergencial: R$ 500,00/ano",
+      "Software de Gestão Pet One: 01 Pet",
+      "Morte Acidental do Tutor: R$ 5.000,00",
+      "Assistência Funeral do Tutor: R$ 5.000,00"
+    ],
+    "LinkPagina": "#"
+  }
+]

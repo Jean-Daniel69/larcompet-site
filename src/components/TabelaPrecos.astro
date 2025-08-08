@@ -11,6 +11,23 @@ try {
   planos = [];
 }
 
+// Função helper para renderizar sub-abas e conteúdo
+function renderSubTabs(planos, prefix) {
+  return (
+    <div class="mt-6">
+      <div class="flex justify-center space-x-4">
+        <button class="tab-sub active-tab" data-tab-parent={prefix} data-tab={`${prefix}-mensal`}>Mensal</button>
+        <button class="tab-sub" data-tab-parent={prefix} data-tab={`${prefix}-anual`}>Anual</button>
+      </div>
+      <div id={`${prefix}-mensal`} class="tab-content-sub active">
+        {renderPlanCards(planos.mensal)}
+      </div>
+      <div id={`${prefix}-anual`} class="tab-content-sub">
+        {renderPlanCards(planos.anual)}
+      </div>
+    </div>
+  );
+}
 // Função para formatar moeda
 function formatarMoeda(valor) {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);
@@ -52,23 +69,7 @@ const planosAgrupados = {
   </div>
 </section>
 
-<!-- Função de Helper para renderizar sub-abas e conteúdo -->
-{function renderSubTabs(planos, prefix) {
-  return (
-    <div class="mt-6">
-      <div class="flex justify-center space-x-4">
-        <button class="tab-sub active-tab" data-tab-parent={prefix} data-tab={`${prefix}-mensal`}>Mensal</button>
-        <button class="tab-sub" data-tab-parent={prefix} data-tab={`${prefix}-anual`}>Anual</button>
-      </div>
-      <div id={`${prefix}-mensal`} class="tab-content-sub active">
-        {renderPlanCards(planos.mensal)}
-      </div>
-      <div id={`${prefix}-anual`} class="tab-content-sub">
-        {renderPlanCards(planos.anual)}
-      </div>
-    </div>
-  );
-}}
+<!-- Função de Helper para renderizar sub-abas e conteúdo removida (agora definida no script) -->
 
 <!-- Função de Helper para renderizar os cards dos planos -->
 {function renderPlanCards(planos) {

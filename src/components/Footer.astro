@@ -1,0 +1,44 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-gray-800 text-white">
+  <div class="container mx-auto py-8 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">LarcomPet</h3>
+        <p class="text-gray-400">
+          Cuidando do seu melhor amigo com a tranquilidade que você merece.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+        <nav class="flex flex-col space-y-2">
+          <a href="/" class="hover:text-pink-400 transition-colors">Início</a>
+          <a href="/#planos" class="hover:text-pink-400 transition-colors">Planos</a>
+          <a href="/#rede" class="hover:text-pink-400 transition-colors">Rede Credenciada</a>
+          <a href="/#contato" class="hover:text-pink-400 transition-colors">Contato</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Siga-nos</h3>
+        <div class="flex space-x-4">
+          <!-- Replace with actual social media links -->
+          <a href="#" aria-label="Facebook" class="hover:text-pink-400 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><!-- Facebook icon --></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="hover:text-pink-400 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><!-- Instagram icon --></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="hover:text-pink-400 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><!-- Twitter/X icon --></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500">
+      <p>&copy; {currentYear} LarcomPet. Todos os direitos reservados.</p>
+      <p class="text-sm">Projetado por Elegant Themes | Reconstruído com Astro por Kilo Code</p>
+    </div>
+  </div>
+</footer>

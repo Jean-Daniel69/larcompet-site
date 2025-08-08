@@ -191,41 +191,7 @@ const planosAgrupados = {
   </div>
 </section>
 
-<!-- Função de Helper para renderizar sub-abas e conteúdo removida (agora definida no script) -->
-
-<!-- Função de Helper para renderizar os cards dos planos -->
-{function renderPlanCards(planos) {
-  if (planos.length === 0) {
-    return <p class="mt-8 text-gray-500">Nenhum plano disponível para esta seleção.</p>;
-  }
-  return (
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-      {planos.map(plano => (
-        <div class="border-2 border-blue-200 rounded-lg p-6 flex flex-col shadow-lg hover:shadow-xl transition">
-          <h3 class="text-2xl font-bold text-blue-900">{plano.Nome}</h3>
-          <div class="my-4">
-            <span class="text-4xl font-bold text-blue-600">{formatarMoeda(plano.ValorFinal)}</span>
-            <span class="text-gray-500">/{plano.Periodicidade === 'Mensal' ? 'mês' : 'ano'}</span>
-            {plano.ValorMensalEquivalente && (
-              <p class="text-sm text-green-600 font-semibold">Equivale a {formatarMoeda(plano.ValorMensalEquivalente)}/mês</p>
-            )}
-          </div>
-          <ul class="text-left space-y-2 flex-grow">
-            {plano.servicos.map(servico => (
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span class="text-gray-700" set:html={servico}></span>
-              </li>
-            ))}
-          </ul>
-          <a href={plano.LinkPagina} target="_blank" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition text-center">
-            Contratar Agora
-          </a>
-        </div>
-      ))}
-    </div>
-  );
-}}
+<!-- Todas as funções helper JSX foram removidas para compatibilidade com Astro -->
 
 <style>
   .tab-main, .tab-sub {
